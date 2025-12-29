@@ -1,7 +1,7 @@
 ---
 title: "Deep Learning Basic"
 color: "#C44DFF"
-links: ["python-setup"] 
+links: [] 
 ---
 
 # 딥러닝 기초
