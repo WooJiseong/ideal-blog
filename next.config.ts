@@ -1,20 +1,10 @@
 import type { NextConfig } from "next";
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   output: "export",
-  
-  // 2. 블로그가 하위 경로(/ideal-blog)에 배포되므로 필수 설정
-  basePath: "/ideal-blog",
-  
+  basePath: "/ideal-blog", // 본인 레포지토리 이름 확인
   images: {
     unoptimized: true,
-  },
-  
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
   },
 };
 
