@@ -27,14 +27,22 @@ interface GraphViewProps {
 const GraphView = ({ initialData }: GraphViewProps) => {
   const fgRef = useRef<any>(null);
   const [dimensions, setDimensions] = useState({ w: 800, h: 600 });
+  const [isMobile, setIsMobile] = useState(false)
   const [selectedNode, setSelectedNode] = useState<ForceGraphNode | null>(null);
   const needsFitRef = useRef(true);
 
   // 1. 화면 크기 감지
   useEffect(() => {
     const updateDimensions = () => {
-      setDimensions({ w: window.innerWidth * 0.85, h: window.innerHeight * 0.85 });
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile)
+
+      setDimensions({ 
+        w: mobile? window.innerWidth : window.innerWidth * 0.85, 
+        h: mobile? window.innerHeight * 0.65 : window.innerHeight * 0.85 
+      });
     };
+
     updateDimensions();
     window.addEventListener('resize', updateDimensions);
     return () => window.removeEventListener('resize', updateDimensions);
